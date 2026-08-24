@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#49392D"/>
+  <g transform="translate(56 80)">
+    <text x="0" y="155" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">Sungsim</text>
+    <text x="0" y="194" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">Church</text>
+    <path d="M140 172 C178 105 262 70 329 88 C284 104 250 126 232 154 C216 178 222 199 259 216 C220 249 170 265 116 255 C90 250 70 239 54 225 C91 225 121 207 140 172 Z" fill="#A8CF32"/>
+    <path d="M295 66 C328 103 350 139 354 176 C358 215 344 255 308 291 C287 312 263 326 237 335 C260 309 274 283 278 258 C282 232 272 211 247 194 C264 172 275 149 281 125 C286 104 290 84 295 66 Z" fill="#2859B8"/>
+    <g transform="translate(318 -2) rotate(9)">
+      <rect x="26" y="0" width="12" height="72" rx="4" fill="#F2AE22"/>
+      <rect x="2" y="23" width="60" height="12" rx="4" fill="#F2AE22"/>
+    </g>
+  </g>
+</svg>

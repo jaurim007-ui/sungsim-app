@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>성심교회 아동부</title>
+  <meta name="theme-color" content="#46362B">
+  <meta name="application-name" content="성심교회 아동부">
+  <meta name="apple-mobile-web-app-title" content="성심교회 아동부">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a}.card{width:min(92vw,420px);background:#fff;border-radius:24px;padding:28px 22px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}.logo{width:132px;height:132px;border-radius:28px;display:block;margin:0 auto 18px}h1{font-size:24px;margin:0 0 8px}p{font-size:14px;line-height:1.7;color:#66737d;margin:0 0 20px}.open{display:block;width:100%;border:0;border-radius:14px;background:#19506f;color:#fff;padding:15px;font-size:16px;font-weight:800;text-decoration:none}.hint{margin-top:16px;background:#f6f8f9;border-radius:12px;padding:12px;font-size:12px;line-height:1.6;color:#56636d}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="icon-192.png" alt="성심교회 로고">
+    <h1>성심교회 아동부</h1>
+    <p>이 페이지를 휴대폰 홈 화면에 추가하면 성심교회 로고 아이콘으로 아동부 앱을 열 수 있습니다.</p>
+    <a class="open" href="https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec">아동부 앱 열기</a>
+    <div class="hint">삼성인터넷 메뉴 → 현재 페이지 추가 → 홈 화면</div>
+  </main>
+<script>
+(function(){
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (standalone) window.location.replace('https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec');
+})();
+</script>
+</body>
+</html>

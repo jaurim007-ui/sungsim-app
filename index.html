@@ -9,10 +9,10 @@
   <meta name="apple-mobile-web-app-title" content="성심교회 아동부">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="manifest.json?v=20260825-1">
-  <link rel="icon" type="image/svg+xml" href="icon.svg?v=20260825-1">
-  <link rel="shortcut icon" type="image/svg+xml" href="icon.svg?v=20260825-1">
-  <link rel="apple-touch-icon" href="icon.svg?v=20260825-1">
+  <link rel="manifest" href="manifest.json?v=20260825-2">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="icon.svg?v=20260825-2">
+  <link rel="shortcut icon" type="image/svg+xml" sizes="any" href="icon.svg?v=20260825-2">
+  <link rel="apple-touch-icon" href="icon.svg?v=20260825-2">
   <style>
     *{box-sizing:border-box}
     body{margin:0;min-height:100vh;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a;padding:18px;display:flex;justify-content:center;align-items:flex-start}
@@ -32,7 +32,7 @@
 </head>
 <body>
   <main class="card">
-    <img class="logo" src="icon.svg?v=20260825-1" alt="성심교회 로고">
+    <img class="logo" src="icon.svg?v=20260825-2" alt="성심교회 로고">
     <h1>성심교회 아동부</h1>
     <p>성심교회 로고 아이콘으로 홈 화면에 추가할 수 있습니다.</p>
 
@@ -52,7 +52,7 @@ const statusEl=document.getElementById('status');
 let deferredPrompt=null;
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./sw.js?v=20260825-1',{scope:'./'})
+  navigator.serviceWorker.register('./sw.js?v=20260825-2',{scope:'./'})
     .then(()=>navigator.serviceWorker.ready)
     .then(()=>{statusEl.textContent='준비 완료. 설치 버튼이 보이면 설치를 누르고, 안 보이면 홈 화면에 추가 방법을 이용해주세요.';})
     .catch(()=>{statusEl.textContent='홈 화면에 추가 방법 버튼을 이용해주세요.';});

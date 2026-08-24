@@ -9,30 +9,110 @@
   <meta name="apple-mobile-web-app-title" content="성심교회 아동부">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="manifest.webmanifest?v=20260824-4">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20260824-4">
-  <link rel="apple-touch-icon" href="icon-192.png?v=20260824-4">
+  <link rel="manifest" href="manifest.webmanifest?v=20260824-5">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20260824-5">
+  <link rel="apple-touch-icon" href="icon-192.png?v=20260824-5">
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a}.card{width:min(92vw,420px);background:#fff;border-radius:24px;padding:28px 22px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}.logo{width:132px;height:132px;border-radius:28px;display:block;margin:0 auto 18px}h1{font-size:24px;margin:0 0 8px}p{font-size:14px;line-height:1.7;color:#66737d;margin:0 0 20px}.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer}.install{background:#49392D;color:#fff;margin-bottom:10px;display:none}.open{background:#19506f;color:#fff}.hint{margin-top:16px;background:#fff5e8;border-radius:12px;padding:13px;font-size:12px;line-height:1.7;color:#6b5137;text-align:left}.hint b{color:#3b2d23}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a;padding:18px}
+    .card{width:min(94vw,430px);background:#fff;border-radius:24px;padding:26px 20px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}
+    .logo{width:132px;height:132px;border-radius:28px;display:block;margin:0 auto 16px}
+    h1{font-size:24px;margin:0 0 8px}
+    p{font-size:14px;line-height:1.7;color:#66737d;margin:0 0 18px}
+    .btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer}
+    .install{background:#49392D;color:#fff;margin-bottom:10px}
+    .help{background:#f1ece8;color:#49392D;margin-bottom:10px}
+    .open{background:#19506f;color:#fff}
+    .guide{display:none;margin-top:16px;background:#fff7ed;border:1px solid #efd9bf;border-radius:14px;padding:15px;text-align:left;font-size:13px;line-height:1.7;color:#5d4b3c}
+    .guide.show{display:block}
+    .guide h2{font-size:15px;margin:0 0 9px;color:#382a21}
+    .guide .browser{font-weight:800;color:#49392D}
+    .guide .warn{margin-top:10px;padding:10px;border-radius:10px;background:#fff;color:#8a4b24}
+    .addr{margin-top:10px;padding:10px;background:#fff;border-radius:10px;word-break:break-all;font-size:11px;color:#63717b}
+    .mini{margin-top:8px;border:0;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;background:#e9eef1;color:#31424d;cursor:pointer}
+    .status{margin-top:12px;font-size:12px;color:#6b7780}
   </style>
 </head>
 <body>
   <main class="card">
-    <img class="logo" src="icon-512.png?v=20260824-4" alt="성심교회 로고">
+    <img class="logo" src="icon-512.png?v=20260824-5" alt="성심교회 로고">
     <h1>성심교회 아동부</h1>
-    <p>앱으로 설치하면 성심교회 로고와 <b>성심교회 아동부</b> 이름으로 사용할 수 있습니다.</p>
+    <p>아래 <b>앱 설치</b> 버튼을 먼저 눌러주세요. 설치 가능한 휴대폰은 바로 설치창이 뜨고, 안 뜨는 휴대폰은 설치 방법을 안내해드립니다.</p>
+
     <button id="installBtn" class="btn install">성심교회 아동부 앱 설치</button>
+    <button id="helpBtn" class="btn help">설치가 안 될 때 방법 보기</button>
     <a class="btn open" href="https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec">아동부 앱 열기</a>
-    <div class="hint"><b>아이콘을 제대로 설치하려면</b><br>카카오톡·문자 안의 간이 브라우저에서 설치하지 말고, 이 주소를 <b>삼성인터넷 또는 Chrome</b>으로 직접 열어주세요.<br><br>삼성인터넷에서는 상단의 <b>설치 아이콘</b> 또는 이 화면의 <b>앱 설치</b> 버튼을 사용하세요. 단순한 ‘홈 화면 바로가기’로 추가하면 브라우저 표시가 붙을 수 있습니다.</div>
+
+    <section id="guide" class="guide">
+      <h2>설치 방법</h2>
+      <div id="browserGuide"></div>
+      <div class="warn"><b>중요</b><br>카카오톡·문자·네이버 앱 안에서 링크를 열었으면, 먼저 <b>삼성인터넷 또는 Chrome으로 열기</b>를 선택한 뒤 설치해주세요. 앱 안의 간이 브라우저에서는 성심교회 아이콘이 제대로 적용되지 않을 수 있습니다.</div>
+      <div class="addr" id="pageUrl"></div>
+      <button id="copyBtn" class="mini">주소 복사</button>
+    </section>
+    <div id="status" class="status"></div>
   </main>
 <script>
 const APP_URL='https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec';
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=20260824-4').catch(()=>{});}
-let deferredPrompt=null;
+const PAGE_URL='https://jaurim007-ui.github.io/sungsim-app/';
 const installBtn=document.getElementById('installBtn');
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.style.display='block';});
-installBtn.addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.style.display='none';});
-window.addEventListener('appinstalled',()=>{installBtn.style.display='none';});
+const helpBtn=document.getElementById('helpBtn');
+const guide=document.getElementById('guide');
+const browserGuide=document.getElementById('browserGuide');
+const statusEl=document.getElementById('status');
+document.getElementById('pageUrl').textContent=PAGE_URL;
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js?v=20260824-5').then(()=>navigator.serviceWorker.ready).catch(()=>{});
+}
+
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  statusEl.textContent='이 휴대폰은 앱 설치를 지원합니다.';
+});
+
+function showGuide(){
+  const ua=navigator.userAgent||'';
+  const isSamsung=/SamsungBrowser/i.test(ua);
+  const isChrome=/Chrome/i.test(ua) && !isSamsung;
+  const isInApp=/KAKAOTALK|NAVER|Instagram|FBAN|FBAV|Line\//i.test(ua);
+  let html='';
+  if(isInApp){
+    html='<span class="browser">현재 앱 안의 브라우저로 열려 있습니다.</span><br>화면 메뉴에서 <b>다른 브라우저로 열기</b> → <b>삼성인터넷</b> 또는 <b>Chrome</b>을 선택해주세요.';
+  }else if(isSamsung){
+    html='<span class="browser">삼성인터넷</span><br>① 이 화면의 <b>앱 설치</b> 버튼을 다시 눌러보세요.<br>② 설치창이 안 뜨면 삼성인터넷 메뉴에서 <b>현재 페이지 추가</b> 또는 <b>앱 설치/앱 화면에 추가</b> 항목을 확인해주세요.<br>③ 가능하면 단순한 홈 화면 바로가기보다 <b>앱 설치</b> 항목을 선택해주세요.';
+  }else if(isChrome){
+    html='<span class="browser">Chrome</span><br>① 오른쪽 위 <b>⋮</b> 메뉴를 누릅니다.<br>② <b>홈 화면에 추가</b> 또는 <b>앱 설치</b>를 누릅니다.<br>③ 설치 선택지가 나오면 <b>설치</b>를 선택해주세요.';
+  }else{
+    html='<span class="browser">브라우저 확인</span><br>이 주소를 <b>삼성인터넷 또는 Chrome</b>으로 직접 연 뒤, 브라우저 메뉴의 <b>앱 설치 / 홈 화면에 추가</b> 기능을 사용해주세요.';
+  }
+  browserGuide.innerHTML=html;
+  guide.classList.add('show');
+  guide.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+installBtn.addEventListener('click',async()=>{
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    const choice=await deferredPrompt.userChoice;
+    if(choice && choice.outcome==='accepted') statusEl.textContent='설치를 진행합니다.';
+    else statusEl.textContent='설치가 취소되었습니다. 아래 안내로 다시 시도할 수 있습니다.';
+    deferredPrompt=null;
+  }else{
+    statusEl.textContent='자동 설치창이 뜨지 않아 설치 방법을 표시했습니다.';
+    showGuide();
+  }
+});
+
+helpBtn.addEventListener('click',showGuide);
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(PAGE_URL);statusEl.textContent='주소를 복사했습니다.';}
+  catch(e){statusEl.textContent='주소를 길게 눌러 복사해주세요.';}
+});
+window.addEventListener('appinstalled',()=>{statusEl.textContent='성심교회 아동부 앱 설치가 완료되었습니다.';});
+
 const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
 if(standalone){window.location.replace(APP_URL);}
 </script>

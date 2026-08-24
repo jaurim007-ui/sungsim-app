@@ -9,25 +9,25 @@
   <meta name="apple-mobile-web-app-title" content="성심교회 아동부">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="manifest.webmanifest?v=20260824-3">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20260824-3">
-  <link rel="apple-touch-icon" href="icon-192.png?v=20260824-3">
+  <link rel="manifest" href="manifest.webmanifest?v=20260824-4">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20260824-4">
+  <link rel="apple-touch-icon" href="icon-192.png?v=20260824-4">
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a}.card{width:min(92vw,420px);background:#fff;border-radius:24px;padding:28px 22px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}.logo{width:132px;height:132px;border-radius:28px;display:block;margin:0 auto 18px}h1{font-size:24px;margin:0 0 8px}p{font-size:14px;line-height:1.7;color:#66737d;margin:0 0 20px}.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer}.install{background:#49392D;color:#fff;margin-bottom:10px;display:none}.open{background:#19506f;color:#fff}.hint{margin-top:16px;background:#f6f8f9;border-radius:12px;padding:12px;font-size:12px;line-height:1.6;color:#56636d}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f3f5f7;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15212a}.card{width:min(92vw,420px);background:#fff;border-radius:24px;padding:28px 22px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}.logo{width:132px;height:132px;border-radius:28px;display:block;margin:0 auto 18px}h1{font-size:24px;margin:0 0 8px}p{font-size:14px;line-height:1.7;color:#66737d;margin:0 0 20px}.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer}.install{background:#49392D;color:#fff;margin-bottom:10px;display:none}.open{background:#19506f;color:#fff}.hint{margin-top:16px;background:#fff5e8;border-radius:12px;padding:13px;font-size:12px;line-height:1.7;color:#6b5137;text-align:left}.hint b{color:#3b2d23}
   </style>
 </head>
 <body>
   <main class="card">
-    <img class="logo" src="icon-512.png?v=20260824-3" alt="성심교회 로고">
+    <img class="logo" src="icon-512.png?v=20260824-4" alt="성심교회 로고">
     <h1>성심교회 아동부</h1>
-    <p>홈 화면에 설치하면 성심교회 로고와 <b>성심교회 아동부</b> 이름으로 사용할 수 있습니다.</p>
+    <p>앱으로 설치하면 성심교회 로고와 <b>성심교회 아동부</b> 이름으로 사용할 수 있습니다.</p>
     <button id="installBtn" class="btn install">성심교회 아동부 앱 설치</button>
     <a class="btn open" href="https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec">아동부 앱 열기</a>
-    <div class="hint">설치 버튼이 보이면 그 버튼을 눌러주세요. 안 보이면 삼성인터넷 메뉴에서 현재 페이지 추가 → 홈 화면을 사용하세요.</div>
+    <div class="hint"><b>아이콘을 제대로 설치하려면</b><br>카카오톡·문자 안의 간이 브라우저에서 설치하지 말고, 이 주소를 <b>삼성인터넷 또는 Chrome</b>으로 직접 열어주세요.<br><br>삼성인터넷에서는 상단의 <b>설치 아이콘</b> 또는 이 화면의 <b>앱 설치</b> 버튼을 사용하세요. 단순한 ‘홈 화면 바로가기’로 추가하면 브라우저 표시가 붙을 수 있습니다.</div>
   </main>
 <script>
 const APP_URL='https://script.google.com/macros/s/AKfycbxFR4Lmd9HeaHgmXaRHFbTblzH-X6X7RGwEPjIYTcwTZhjCl5ajlgZVclpRcDUdOdoB/exec';
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=20260824-3').catch(()=>{});}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js?v=20260824-4').catch(()=>{});}
 let deferredPrompt=null;
 const installBtn=document.getElementById('installBtn');
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.style.display='block';});

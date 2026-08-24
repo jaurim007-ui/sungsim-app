@@ -1,5 +1,14 @@
-const CACHE='sungsim-launcher-v3';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting();});
-self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request).catch(()=>caches.match(event.request).then(r=>r||caches.match('./'))));});
+const VERSION='sungsim-pwa-v4';
+self.addEventListener('install',event=>{
+  self.skipWaiting();
+});
+self.addEventListener('activate',event=>{
+  event.waitUntil(
+    caches.keys()
+      .then(keys=>Promise.all(keys.map(key=>caches.delete(key))))
+      .then(()=>self.clients.claim())
+  );
+});
+self.addEventListener('fetch',event=>{
+  // 네트워크 요청을 그대로 사용합니다. 이 fetch 핸들러는 PWA 설치 요건 호환성을 위한 최소 구성입니다.
+});

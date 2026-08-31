@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>우리집 재무센터</title>
+  <meta name="theme-color" content="#006A50">
+  <meta name="application-name" content="우리집 재무센터">
+  <meta name="apple-mobile-web-app-title" content="우리집 재무센터">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json?v=20260831-1">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="icon.svg?v=20260831-1">
+  <link rel="shortcut icon" type="image/svg+xml" sizes="any" href="icon.svg?v=20260831-1">
+  <link rel="apple-touch-icon" href="icon.svg?v=20260831-1">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#f2f5f3;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#15251f;padding:18px;display:flex;justify-content:center;align-items:flex-start}
+    .card{width:min(94vw,430px);background:#fff;border-radius:24px;padding:24px 20px;box-shadow:0 12px 40px rgba(0,0,0,.10);text-align:center}
+    .logo{width:132px;height:132px;border-radius:30px;display:block;margin:0 auto 16px}
+    h1{font-size:24px;margin:0 0 8px}
+    p{font-size:14px;line-height:1.65;color:#66736e;margin:0 0 18px}
+    .btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer;margin:0 0 10px}
+    .install{display:none;background:#006A50;color:#fff}
+    .help{background:#e7f0ec;color:#075c49}
+    .open{background:#075c49;color:#fff}
+    .guide{display:none;margin-top:14px;padding:15px;border:1px solid #cae0d7;border-radius:14px;background:#f4faf7;color:#40554c;text-align:left;font-size:13px;line-height:1.7}
+    .guide.show{display:block}
+    .guide b{color:#123d31}
+    .status{margin-top:12px;font-size:12px;line-height:1.5;color:#6c7873}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="icon.svg?v=20260831-1" alt="우리집 재무센터 아이콘">
+    <h1>우리집 재무센터</h1>
+    <p>초록색 집·지갑·원화 아이콘으로 홈 화면에 설치할 수 있습니다.</p>
+
+    <button id="installBtn" class="btn install">우리집 재무센터 앱 설치</button>
+    <button id="helpBtn" class="btn help">홈 화면에 추가 방법</button>
+    <a class="btn open" href="https://script.google.com/macros/s/AKfycbyWqorvwV4Srz9aIAehDW2gJH6h4VaoZKYSn41LT_PFLaans_2wR1hCJjCSjFpOlo9xBw/exec">재무센터 열기</a>
+
+    <div id="guide" class="guide"></div>
+    <div id="status" class="status">설치 정보를 확인 중입니다.</div>
+  </main>
+<script>
+const APP_URL='https://script.google.com/macros/s/AKfycbyWqorvwV4Srz9aIAehDW2gJH6h4VaoZKYSn41LT_PFLaans_2wR1hCJjCSjFpOlo9xBw/exec';
+const installBtn=document.getElementById('installBtn');
+const helpBtn=document.getElementById('helpBtn');
+const guide=document.getElementById('guide');
+const statusEl=document.getElementById('status');
+let deferredPrompt=null;
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js?v=20260831-1',{scope:'./'})
+    .then(()=>navigator.serviceWorker.ready)
+    .then(()=>{statusEl.textContent='준비 완료. 설치 버튼이 보이면 설치를 누르고, 안 보이면 홈 화면에 추가 방법을 이용해주세요.';})
+    .catch(()=>{statusEl.textContent='홈 화면에 추가 방법 버튼을 이용해주세요.';});
+}
+
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  installBtn.style.display='block';
+  statusEl.textContent='이 휴대폰은 앱 형태로 설치할 수 있습니다.';
+});
+
+installBtn.addEventListener('click',async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  installBtn.style.display='none';
+});
+
+helpBtn.addEventListener('click',()=>{
+  const ua=navigator.userAgent||'';
+  const samsung=/SamsungBrowser/i.test(ua);
+  const chrome=/Chrome/i.test(ua)&&!samsung;
+  if(samsung){
+    guide.innerHTML='<b>삼성인터넷</b><br>오른쪽 아래 메뉴(≡ 또는 ⋮) → <b>현재 페이지 추가</b> → <b>홈 화면</b>을 선택하세요.<br><br>추가 화면에서 초록색 재무센터 아이콘이 보이는지 확인한 뒤 추가하면 됩니다.';
+  }else if(chrome){
+    guide.innerHTML='<b>Chrome</b><br>오른쪽 위 ⋮ → <b>홈 화면에 추가</b> 또는 <b>앱 설치</b>를 선택하세요.<br><br>추가 화면에서 초록색 재무센터 아이콘이 보이는지 확인한 뒤 추가하면 됩니다.';
+  }else{
+    guide.innerHTML='이 주소를 <b>삼성인터넷 또는 Chrome</b>으로 직접 열고 브라우저 메뉴의 <b>홈 화면에 추가</b> 기능을 사용하세요.';
+  }
+  guide.classList.toggle('show');
+});
+
+window.addEventListener('appinstalled',()=>{
+  statusEl.textContent='우리집 재무센터 앱 설치가 완료되었습니다.';
+  installBtn.style.display='none';
+});
+
+const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+if(standalone){window.location.replace(APP_URL);}
+</script>
+</body>
+</html>

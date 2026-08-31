@@ -1,0 +1,19 @@
+{
+  "id": "/sungsim-app/finance/",
+  "name": "우리집 재무센터",
+  "short_name": "재무센터",
+  "description": "우리집 재무센터 실행 페이지",
+  "start_url": "/sungsim-app/finance/?source=pwa",
+  "scope": "/sungsim-app/finance/",
+  "display": "standalone",
+  "background_color": "#006A50",
+  "theme_color": "#006A50",
+  "icons": [
+    {
+      "src": "/sungsim-app/finance/icon.svg?v=20260831-1",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
